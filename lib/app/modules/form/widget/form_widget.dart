@@ -16,12 +16,25 @@ class FormWidget extends GetView<FormController> {
           const SizedBox(
             height: 16,
           ),
-          TextField(
+          TextFormField(
+            autovalidateMode: AutovalidateMode.onUserInteraction,
             controller: controller.cTitle,
             decoration: InputDecoration(
                 border:
                     OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
-                hintText: 'Title Here...'),
+                hintText: 'Title Here...',
+                fillColor: Colors.white,
+                filled: true,
+                focusedBorder: OutlineInputBorder(
+                    borderSide:
+                        const BorderSide(color: Color(0xff535FF7), width: 2.0),
+                    borderRadius: BorderRadius.circular(10.0)),
+                focusedErrorBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.red, width: 2.0),
+                    borderRadius: BorderRadius.circular(10.0))),
+            validator: (value) {
+              return controller.validateTitle(value!);
+            },
           ),
           const SizedBox(
             height: 28,
@@ -30,12 +43,25 @@ class FormWidget extends GetView<FormController> {
           const SizedBox(
             height: 16,
           ),
-          TextField(
+          TextFormField(
+            autovalidateMode: AutovalidateMode.onUserInteraction,
             controller: controller.cDesc,
             decoration: InputDecoration(
                 border:
                     OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
-                hintText: 'Content Here...'),
+                hintText: 'Description Here...',
+                fillColor: Colors.white,
+                filled: true,
+                focusedBorder: OutlineInputBorder(
+                    borderSide:
+                        const BorderSide(color: Color(0xff535FF7), width: 2.0),
+                    borderRadius: BorderRadius.circular(10.0)),
+                focusedErrorBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.red, width: 2.0),
+                    borderRadius: BorderRadius.circular(10.0))),
+            validator: (value) {
+              return controller.validateDesc(value!);
+            },
           ),
           const SizedBox(
             height: 400,

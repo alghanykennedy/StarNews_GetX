@@ -25,4 +25,18 @@ class FormController extends GetxController {
       isLoading(false);
     }
   }
+
+  String? validateTitle(String value) {
+    if (value.length < 5) {
+      return "Title must be of 5 characters or more";
+    }
+    return null;
+  }
+
+  String? validateDesc(String value) {
+    if (value.length < 20) {
+      return "Description must be of 20 characters or more";
+    }
+    return null;
+  }
 }
